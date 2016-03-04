@@ -4,7 +4,6 @@ require "sinatra"
 set :environment, :production
 
 get "/" do
-  # "Hello World"
-  "Hello World"
+  ENV["MESSAGE"]
 end
 
