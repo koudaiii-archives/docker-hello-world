@@ -1,0 +1,7 @@
+# docker-compose.yml
+web:
+  build: .
+  ports:
+    - "8080"
+  environment:
+    - MESSAGE=Hello Wantedly
