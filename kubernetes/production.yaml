@@ -1,9 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world
+  namespace: docker-hello-world
+  name: docker-hello-world
   labels:
-    name: hello-world
+    name: docker-hello-world
     role: web
 spec:
   minReadySeconds: 30
@@ -12,14 +13,14 @@ spec:
   replicas: 1
   template:
     metadata:
-      name: hello-world
+      name: docker-hello-world
       labels:
-        name: hello-world
+        name: docker-hello-world
         role: web
     spec:
       containers:
       - image: koudaiii/hello-world:latest
-        name: hello-world
+        name: docker-hello-world
         ports:
           - containerPort: 8080
         env:
