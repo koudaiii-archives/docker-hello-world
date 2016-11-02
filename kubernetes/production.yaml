@@ -21,6 +21,13 @@ spec:
       containers:
       - image: koudaiii/hello-world:latest
         name: docker-hello-world
+        resources:
+          requests:
+            cpu: 1
+            memory: 1G
+          limits:
+            cpu:  2
+            memory: 1G
         ports:
           - containerPort: 8080
         env:
