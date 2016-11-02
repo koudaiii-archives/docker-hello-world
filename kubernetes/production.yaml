@@ -10,7 +10,7 @@ spec:
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
-  replicas: 1
+  replicas: 10
   template:
     metadata:
       name: docker-hello-world
