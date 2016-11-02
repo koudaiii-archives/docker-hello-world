@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "hello-world"
+  name: docker-hello-world
+  namespace: docker-hello-world
   labels:
-    name: hello-world
+    name: docker-hello-world
     role: web
 spec:
   containers:
     - image: koudaiii/hello-world:latest
-      name: hello-world
+      name: docker-hello-world
       ports:
         - containerPort: 8080
       env:
