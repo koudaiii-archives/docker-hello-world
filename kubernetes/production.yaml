@@ -1,42 +1,33 @@
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    name: hello-world
-    role: web
-  name: hello-world
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 8080
-  selector:
-    name: hello-world
-    role: web
-  type: LoadBalancer
----
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world
+  namespace: docker-hello-world
+  name: docker-hello-world
   labels:
-    name: hello-world
+    name: docker-hello-world
     role: web
 spec:
   minReadySeconds: 30
   strategy:
     type: RollingUpdate
-  replicas: 1
+  replicas: 10
   template:
     metadata:
-      name: hello-world
+      name: docker-hello-world
       labels:
-        name: hello-world
+        name: docker-hello-world
         role: web
     spec:
       containers:
       - image: koudaiii/hello-world:latest
-        name: hello-world
+        name: docker-hello-world
+        resources:
+          requests:
+            cpu: 1
+            memory: 1G
+          limits:
+            cpu:  2
+            memory: 1G
         ports:
           - containerPort: 8080
         env:
